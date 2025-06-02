@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button - Camisas con Estilo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav>
+            <div class="logo">Button</div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#pedido">Hacer Pedido</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>Button</h1>
+            <p>Elegancia y estilo en cada detalle</p>
+        </div>
+    </header>
+
+    <!-- Presentación Section -->
+    <section id="inicio" class="presentacion">
+        <h2>Nuestra Marca</h2>
+        <p>En Button, creamos camisas que combinan la elegancia clásica con un toque moderno. Cada prenda está diseñada pensando en la calidad y el confort, utilizando los mejores materiales para garantizar que te sientas tan bien como te ves.</p>
+        <div class="valores">
+            <div class="valor">
+                <h3>Calidad</h3>
+                <p>Materiales premium en cada prenda</p>
+            </div>
+            <div class="valor">
+                <h3>Estilo</h3>
+                <p>Diseños modernos y atemporales</p>
+            </div>
+            <div class="valor">
+                <h3>Confort</h3>
+                <p>Comodidad garantizada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo Section -->
+    <section id="catalogo" class="catalogo">
+        <h2>Nuestro Catálogo</h2>
+        <div class="productos">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Formulario de Pedido -->
+    <section id="pedido" class="pedido">
+        <h2>Hacer Pedido</h2>
+        <form id="pedidoForm">
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" required>
+            </div>
+            <div class="form-group">
+                <label for="modelo">Modelo</label>
+                <select id="modelo" name="modelo" required>
+                    <option value="">Selecciona un modelo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="talla">Talla</label>
+                <select id="talla" name="talla" required>
+                    <option value="">Selecciona una talla</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Button. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
