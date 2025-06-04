@@ -9,6 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* Header y navegación */
@@ -49,6 +50,7 @@ nav {
     cursor: pointer;
     padding: 0.5rem;
     transition: transform 0.3s ease;
+    z-index: 1002;
 }
 
 .menu-toggle:hover {
@@ -260,8 +262,6 @@ footer {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        order: 1;
-        z-index: 1001;
     }
 
     .nav-links {
@@ -270,34 +270,39 @@ footer {
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        z-index: 1000;
-        padding: 2rem;
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
         transition: all 0.3s ease;
     }
 
     .nav-links.active {
         display: flex;
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links a {
         font-size: 1.5rem;
         padding: 1rem;
         opacity: 0.9;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active a {
+        transform: translateY(0);
     }
 
     .nav-links a:hover {
         opacity: 1;
         transform: scale(1.1);
-    }
-
-    .nav-links a::after {
-        display: none;
     }
 
     .hero-content {
