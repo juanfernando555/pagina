@@ -13,9 +13,9 @@
       <div class="logo">Button</div>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <div class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#catalogo">Catálogo</a>
-        <a href="#pedido">Hacer Pedido</a>
+        <a href="#inicio" onclick="closeMenu()">Inicio</a>
+        <a href="#catalogo" onclick="closeMenu()">Catálogo</a>
+        <a href="#pedido" onclick="closeMenu()">Hacer Pedido</a>
       </div>
     </nav>
 
@@ -95,6 +95,11 @@
       } else {
         menuBtn.innerHTML = '☰';
       }
+    }
+
+    function closeMenu() {
+      document.querySelector('.nav-links').classList.remove('active');
+      document.querySelector('.menu-toggle').innerHTML = '☰';
     }
   </script>
   <script src="script.js"></script>
