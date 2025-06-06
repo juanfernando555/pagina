@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const formData = {
                 nombre: document.getElementById('nombre').value,
-                whatsapp: document.getElementById('whatsapp').value,
                 modelo: productos.find(p => p.id === parseInt(document.getElementById('modelo').value)).nombre,
                 talla: document.getElementById('talla').value
             };
@@ -100,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         `Talla: ${formData.talla}`;
 
             // Abrir WhatsApp con el mensaje
-            window.open(`https://wa.me/${formData.whatsapp}?text=${mensaje}`);
+            window.open(`https://wa.me/59167053233?text=${mensaje}`);
             
             // Limpiar formulario
             this.reset();
