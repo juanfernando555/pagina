@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliza tu Camisa - Button</title>
+    <link rel="stylesheet" href="/button/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-container"></div>
+
+    <!-- Contenido principal -->
+    <main class="customizer-container">
+        <h1>Personaliza tu Camisa</h1>
+        <p class="subtitle">Crea tu diseño único con nuestro simulador</p>
+
+        <div class="customizer-grid">
+            <!-- Previsualización -->
+            <div class="preview-section">
+                <div class="shirt-preview" id="shirtPreview">
+                    <img src="/button/img/shirt-template.png" alt="Camisa" id="shirtImage">
+                    <div class="custom-text" id="customTextPreview"></div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <div class="controls-section">
+                <form id="customizerForm" class="customizer-form">
+                    <!-- Color -->
+                    <div class="control-group">
+                        <label>Color de la Camisa:</label>
+                        <div class="color-options">
+                            <button type="button" class="color-btn" data-color="#ffffff" style="background-color: #ffffff"></button>
+                            <button type="button" class="color-btn" data-color="#000000" style="background-color: #000000"></button>
+                            <button type="button" class="color-btn" data-color="#1f618d" style="background-color: #1f618d"></button>
+                            <button type="button" class="color-btn" data-color="#2ecc71" style="background-color: #2ecc71"></button>
+                            <button type="button" class="color-btn" data-color="#e74c3c" style="background-color: #e74c3c"></button>
+                        </div>
+                    </div>
+
+                    <!-- Texto -->
+                    <div class="control-group">
+                        <label for="customText">Texto Personalizado:</label>
+                        <input type="text" id="customText" name="customText" maxlength="20" placeholder="Ingresa tu texto">
+                    </div>
+
+                    <!-- Talla -->
+                    <div class="control-group">
+                        <label for="size">Talla:</label>
+                        <select id="size" name="size" required>
+                            <option value="">Selecciona una talla</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+
+                    <!-- Resumen -->
+                    <div class="summary">
+                        <h3>Resumen del Pedido</h3>
+                        <p>Color: <span id="selectedColor">Blanco</span></p>
+                        <p>Texto: <span id="selectedText">-</span></p>
+                        <p>Talla: <span id="selectedSize">-</span></p>
+                        <p class="price">Precio: Bs. 299.00</p>
+                    </div>
+
+                    <!-- Botón de WhatsApp -->
+                    <button type="button" id="whatsappButton" class="whatsapp-button">
+                        <i class="bi bi-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/button/js/components.js"></script>
+    <script src="/button/js/customizer.js"></script>
+</body>
+</html> 

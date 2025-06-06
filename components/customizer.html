@@ -1,0 +1,51 @@
+<!-- Customizer Component -->
+<section id="customizer" class="customizer">
+  <h2>Personaliza tu Camisa</h2>
+  <div class="customizer-container">
+    <div class="preview-container">
+      <div class="shirt-preview">
+        <img id="shirtPreview" src="img/shirt-white.png" alt="Vista previa de la camisa">
+        <div id="customText" class="custom-text"></div>
+      </div>
+    </div>
+    
+    <div class="controls-container">
+      <div class="control-group">
+        <label for="shirtColor">Color de la Camisa:</label>
+        <select id="shirtColor" onchange="updateShirtPreview()">
+          <option value="white">Blanco</option>
+          <option value="blue">Azul</option>
+          <option value="black">Negro</option>
+          <option value="red">Rojo</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="customTextInput">Texto Personalizado:</label>
+        <input type="text" id="customTextInput" 
+               placeholder="Ingresa tu texto" 
+               onkeyup="updateCustomText()">
+      </div>
+
+      <div class="control-group">
+        <label for="textColor">Color del Texto:</label>
+        <input type="color" id="textColor" 
+               onchange="updateCustomText()">
+      </div>
+
+      <div class="control-group">
+        <label for="customSize">Talla:</label>
+        <select id="customSize">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" onclick="orderCustomShirt()">
+        Hacer Pedido Personalizado
+      </button>
+    </div>
+  </div>
+</section> 

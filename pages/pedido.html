@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hacer Pedido - Button</title>
+  <link rel="stylesheet" href="/button/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Include Header -->
+  <div id="header-container"></div>
+
+  <section id="pedido" class="pedido">
+    <div class="section-header">
+      <h2>Hacer Pedido</h2>
+      <p>Completa el formulario para realizar tu pedido</p>
+    </div>
+    <form id="pedidoForm">
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="modelo">Modelo</label>
+        <select id="modelo" name="modelo" required>
+          <option value="">Selecciona un modelo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="talla">Talla</label>
+        <select id="talla" name="talla" required>
+          <option value="">Selecciona una talla</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">Enviar Pedido</button>
+    </form>
+  </section>
+
+  <!-- Include Footer -->
+  <div id="footer-container"></div>
+
+  <script src="/button/js/components.js"></script>
+  <script src="/button/js/script.js"></script>
+</body>
+</html> 
