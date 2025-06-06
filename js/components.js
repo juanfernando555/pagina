@@ -15,11 +15,85 @@ async function loadComponent(elementId, componentPath) {
     }
 }
 
+// Función para cargar el header
+function loadHeader() {
+    const header = `
+        <header>
+            <div class="top-bar">
+                <div class="contact-info">
+                    <span><i class="bi bi-telephone"></i> +591 67053233</span>
+                    <span><i class="bi bi-envelope"></i> info@button.com</span>
+                    <span><i class="bi bi-clock"></i> Lun - Vie: 09:00 - 20:00</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/59167053233" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://instagram.com/button" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://tiktok.com/@button" target="_blank"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://facebook.com/button" target="_blank"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+            <nav>
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/img/Objeto inteligente vectorial.png" alt="Button Logo">
+                        <span>Button</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/pages/catalogo.html">Catálogo</a></li>
+                    <li><a href="/pages/personalizar.html">Personalizar</a></li>
+                    <li><a href="/pages/nosotros.html">Nosotros</a></li>
+                    <li><a href="/pages/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+    `;
+    document.getElementById('header-container').innerHTML = header;
+}
+
+// Función para cargar el footer
+function loadFooter() {
+    const footer = `
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="bi bi-geo-alt"></i> Av. Principal #123, Santa Cruz</p>
+                    <p><i class="bi bi-telephone"></i> +591 67053233</p>
+                    <p><i class="bi bi-envelope"></i> info@button.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+                        <li><a href="/pages/personalizar.html">Personalizar</a></li>
+                        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+                        <li><a href="/pages/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/59167053233" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://instagram.com/button" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://tiktok.com/@button" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://facebook.com/button" target="_blank"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Button. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    `;
+    document.getElementById('footer-container').innerHTML = footer;
+}
+
 // Cargar componentes cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    // Cargar header y footer usando rutas absolutas
-    loadComponent('header-container', '/button/components/header.html');
-    loadComponent('footer-container', '/button/components/footer.html');
+document.addEventListener('DOMContentLoaded', function() {
+    loadHeader();
+    loadFooter();
 
     // Manejar el menú móvil después de que se cargue el header
     setTimeout(() => {

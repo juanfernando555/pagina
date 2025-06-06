@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-site-verification" content="VX1tQBsS1tQqaRJBFfokeiovLWUezY3CgD3Ik1RH_Z8" />
   <title>Button - Camisas con Estilo</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -51,140 +51,57 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="top-bar">
-      <div class="contact-info">
-        <span><i class="bi bi-telephone"></i> +591 67053233</span>
-        <span><i class="bi bi-envelope"></i> info@button.com</span>
-        <span><i class="bi bi-clock"></i> Lun - Vie: 09:00 - 20:00</span>
-      </div>
-      <div class="social-links">
-        <a href="https://wa.me/59167053233" target="_blank"><i class="bi bi-whatsapp"></i></a>
-        <a href="https://instagram.com/button" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://tiktok.com/@button" target="_blank"><i class="bi bi-tiktok"></i></a>
-        <a href="https://facebook.com/button" target="_blank"><i class="bi bi-facebook"></i></a>
-      </div>
-    </div>
-    <nav>
-      <div class="logo">
-        <a href="./index.html">
-          <img src="./img/Objeto inteligente vectorial.png" alt="Button Logo">
-          <span>Button</span>
-        </a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="./index.html">Inicio</a></li>
-        <li><a href="./pages/catalogo.html">Catálogo</a></li>
-        <li><a href="./pages/personalizar.html">Personalizar</a></li>
-        <li><a href="./pages/nosotros.html">Nosotros</a></li>
-        <li><a href="./pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header Container -->
+  <div id="header-container"></div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-logo-container">
-        <img src="./img/Objeto inteligente vectorial.png" alt="Button Logo" class="hero-logo">
-        <span class="hero-title">Button</span>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-logo-container">
+          <img src="/img/Objeto inteligente vectorial.png" alt="Button Logo" class="hero-logo">
+          <span class="hero-title">Button</span>
+        </div>
+        <p class="subtitle">Elegancia y estilo en cada detalle</p>
       </div>
-      <h1>Elegancia y estilo en cada detalle</h1>
-      <p>Diseños únicos que reflejan tu estilo personal</p>
-      <a href="/button/pages/personalizar.html" class="btn btn-primary">
-        <i class="bi bi-palette"></i>
-        Personaliza tu Camisa
-      </a>
-    </div>
-  </section>
+    </section>
 
-  <!-- Featured Products -->
-  <section class="container">
-    <h2 class="text-center mt-4 mb-3">Nuestros Productos</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1602810316693-3667c854239a?w=500" 
-             alt="Camisa Casual" 
-             class="product-image">
-        <div class="product-info">
-          <h3>Camisa Casual</h3>
-          <p>Perfecta para cualquier ocasión</p>
-          <span class="price">Bs. 299.00</span>
-          <div class="product-buttons">
-            <a href="/button/pages/catalogo.html" class="btn btn-outline">
-              <i class="bi bi-eye"></i> Ver Detalles
-            </a>
-            <a href="#" class="btn btn-primary">
-              <i class="bi bi-bag"></i> Ordenar
-            </a>
+    <!-- Products Section -->
+    <section class="products">
+      <h2>Nuestros Productos</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602810316693-3667c854239a?w=500" alt="Camisa Casual">
+          <div class="product-info">
+            <h3>Camisa Casual</h3>
+            <p>Perfecta para cualquier ocasión</p>
+            <span class="price">Bs. 299.00</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=500" alt="Camisa Formal">
+          <div class="product-info">
+            <h3>Camisa Formal</h3>
+            <p>Elegancia en cada detalle</p>
+            <span class="price">Bs. 349.00</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" alt="Camisa Ejecutiva">
+          <div class="product-info">
+            <h3>Camisa Ejecutiva</h3>
+            <p>Distinción y estilo</p>
+            <span class="price">Bs. 399.00</span>
           </div>
         </div>
       </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=500" 
-             alt="Camisa Formal" 
-             class="product-image">
-        <div class="product-info">
-          <h3>Camisa Formal</h3>
-          <p>Elegancia en cada detalle</p>
-          <span class="price">Bs. 349.00</span>
-          <div class="product-buttons">
-            <a href="/button/pages/catalogo.html" class="btn btn-outline">
-              <i class="bi bi-eye"></i> Ver Detalles
-            </a>
-            <a href="#" class="btn btn-primary">
-              <i class="bi bi-bag"></i> Ordenar
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" 
-             alt="Camisa Ejecutiva" 
-             class="product-image">
-        <div class="product-info">
-          <h3>Camisa Ejecutiva</h3>
-          <p>Distinción y estilo</p>
-          <span class="price">Bs. 399.00</span>
-          <div class="product-buttons">
-            <a href="/button/pages/catalogo.html" class="btn btn-outline">
-              <i class="bi bi-eye"></i> Ver Detalles
-            </a>
-            <a href="#" class="btn btn-primary">
-              <i class="bi bi-bag"></i> Ordenar
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Features -->
-  <section class="container mt-4">
-    <div class="features-grid">
-      <div class="feature-card">
-        <i class="bi bi-palette-fill"></i>
-        <h3>Diseño Personalizado</h3>
-        <p>Crea tu diseño único con nuestro simulador online</p>
-      </div>
-      <div class="feature-card">
-        <i class="bi bi-star-fill"></i>
-        <h3>Alta Calidad</h3>
-        <p>Materiales premium y acabados perfectos</p>
-      </div>
-      <div class="feature-card">
-        <i class="bi bi-truck"></i>
-        <h3>Entrega Rápida</h3>
-        <p>Envíos a toda Bolivia</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Include Footer -->
+  <!-- Footer Container -->
   <div id="footer-container"></div>
 
   <!-- Scripts -->
-  <script src="/button/js/components.js"></script>
+  <script src="/js/components.js"></script>
 </body>
 </html>
