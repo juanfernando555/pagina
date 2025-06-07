@@ -433,130 +433,6 @@
             gap: 20px;
         }
 
-        .main-image {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .image-grid img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Estilos móviles optimizados */
-        @media (max-width: 768px) {
-            .feature-container {
-                padding: 0 20px;
-            }
-
-            .feature-text {
-                text-align: left;
-            }
-
-            .feature-text h2 {
-                font-size: 32px;
-                margin-bottom: 15px;
-            }
-
-            .feature-text h3 {
-                font-size: 22px;
-                margin-bottom: 15px;
-                padding-right: 15px;
-            }
-
-            .feature-text p {
-                font-size: 16px;
-                margin-bottom: 25px;
-                padding-right: 15px;
-            }
-
-            .feature-list {
-                margin: 25px 0;
-            }
-
-            .feature-list h4 {
-                font-size: 20px;
-                margin-bottom: 15px;
-            }
-
-            .feature-list li {
-                margin-bottom: 14px;
-                padding-right: 15px;
-            }
-
-            .feature-list i {
-                font-size: 18px;
-            }
-
-            .feature-list span {
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .feature-container {
-                padding: 0 15px;
-            }
-
-            .feature-text h2 {
-                font-size: 28px;
-                margin-bottom: 12px;
-            }
-
-            .feature-text h3 {
-                font-size: 20px;
-                margin-bottom: 12px;
-                padding-right: 10px;
-            }
-
-            .feature-text p {
-                font-size: 15px;
-                margin-bottom: 20px;
-                padding-right: 10px;
-            }
-
-            .feature-list {
-                margin: 20px 0;
-            }
-
-            .feature-list h4 {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-
-            .feature-list li {
-                margin-bottom: 12px;
-                padding-right: 10px;
-                gap: 10px;
-            }
-
-            .feature-list i {
-                font-size: 16px;
-                margin-top: 2px;
-            }
-
-            .feature-list span {
-                font-size: 14px;
-                line-height: 1.4;
-            }
-
-            .carousel-container {
-                margin-top: 20px;
-            }
-        }
-
-        /* Estilos del carrusel */
         .carousel-container {
             position: relative;
             width: 100%;
@@ -587,7 +463,77 @@
             opacity: 1;
         }
 
-        /* Botones de navegación */
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .feature-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-image {
+                order: -1; /* Mueve la imagen arriba */
+            }
+
+            .carousel-container {
+                height: 400px;
+            }
+
+            .feature-text {
+                text-align: center;
+                padding: 0;
+            }
+
+            .feature-text h2 {
+                font-size: 32px;
+            }
+
+            .feature-text h3 {
+                font-size: 22px;
+            }
+
+            .feature-text p {
+                font-size: 16px;
+            }
+
+            .feature-list {
+                max-width: 500px;
+                margin: 30px auto;
+            }
+
+            .feature-list li {
+                justify-content: flex-start;
+                text-align: left;
+            }
+
+            .btn-customize {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-container {
+                height: 300px;
+            }
+
+            .feature-text h2 {
+                font-size: 28px;
+            }
+
+            .feature-text h3 {
+                font-size: 20px;
+            }
+
+            .feature-list h4 {
+                font-size: 22px;
+            }
+
+            .feature-list li {
+                font-size: 15px;
+            }
+        }
+
+        /* Estilos del carrusel */
         .carousel-nav {
             position: absolute;
             top: 50%;
