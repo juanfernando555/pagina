@@ -345,17 +345,17 @@
         }
 
         .feature-text h2 {
-            color: #1f618d;
+            color: #2980b9;
             font-size: 36px;
-            margin-bottom: 10px;
-            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .feature-text h3 {
             color: #333;
             font-size: 24px;
             margin-bottom: 20px;
-            font-weight: normal;
+            line-height: 1.4;
         }
 
         .feature-text p {
@@ -448,6 +448,258 @@
             80% { opacity: 1; }
             100% { opacity: 0; }
         }
+
+        /* Ajustes responsive mejorados */
+        @media (max-width: 768px) {
+            .shirt-feature {
+                padding: 40px 20px;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0;
+                text-align: left;
+            }
+
+            .feature-text h2 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .feature-text h3 {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+
+            .feature-text p {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .feature-list {
+                margin: 25px 0;
+            }
+
+            .feature-list h4 {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+
+            .feature-list li {
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shirt-feature {
+                padding: 30px 15px;
+            }
+
+            .feature-container {
+                gap: 25px;
+            }
+
+            .feature-text h2 {
+                font-size: 28px;
+                margin-bottom: 12px;
+            }
+
+            .feature-text h3 {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+
+            .feature-text p {
+                font-size: 15px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+
+            .feature-list {
+                margin: 20px 0;
+            }
+
+            .feature-list h4 {
+                font-size: 17px;
+                margin-bottom: 10px;
+            }
+
+            .feature-list li {
+                font-size: 14px;
+                margin-bottom: 8px;
+                line-height: 1.4;
+            }
+
+            .feature-image img {
+                border-radius: 15px;
+                margin-top: 10px;
+            }
+        }
+
+        /* Hero section responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 20px 40px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .hero-logo-container {
+                margin-bottom: 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                margin-bottom: 15px;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 15px 30px;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-logo-container {
+                margin-bottom: 15px;
+                justify-content: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+
+        /* Estilos de imágenes */
+        .feature-image {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Mejoras estéticas para móvil */
+        @media (max-width: 768px) {
+            .feature-text {
+                padding: 0 15px;
+            }
+
+            .feature-text h2 {
+                font-size: 42px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .feature-text h3 {
+                font-size: 28px;
+                line-height: 1.3;
+                color: #444;
+                margin-bottom: 25px;
+            }
+
+            .feature-text p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #666;
+            }
+
+            .feature-image {
+                padding: 0 15px;
+                gap: 15px;
+            }
+
+            .image-grid {
+                gap: 15px;
+            }
+
+            .image-grid img {
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-text {
+                padding: 0 10px;
+            }
+
+            .feature-text h2 {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+
+            .feature-text h3 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .feature-text p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .feature-image {
+                padding: 0 10px;
+                gap: 12px;
+            }
+
+            .main-image {
+                border-radius: 15px;
+            }
+
+            .image-grid {
+                gap: 12px;
+            }
+
+            .image-grid img {
+                height: 100px;
+                border-radius: 12px;
+            }
+
+            .btn-customize {
+                width: 100%;
+                justify-content: center;
+                margin-top: 25px;
+            }
+        }
     </style>
 
     <script>
@@ -517,8 +769,8 @@
         <section class="shirt-feature">
             <div class="feature-container">
                 <div class="feature-text">
-                    <h2>LA CAMISA</h2>
-                    <h3>Es una prenda importante para vestir con elegancia.</h3>
+                    <h2>LA<br>CAMISA</h2>
+                    <h3>Es una prenda<br>importante para<br>vestir con<br>elegancia.</h3>
                     <p>Con nuestro servicio de camisería a la medida, te ofrecemos una prenda única diseñada a tu estilo. Este servicio representa nuestra más noble y experta dedicación por garantizar en pocos días la camisa perfecta.</p>
                     
                     <div class="feature-list">
@@ -538,11 +790,10 @@
                     </a>
                 </div>
                 <div class="feature-image">
-                    <div class="image-carousel">
-                        <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157" alt="Camisa Elegante" class="carousel-image active">
-                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10" alt="Detalle de Camisa" class="carousel-image">
-                        <img src="https://images.unsplash.com/photo-1563630423918-b58f07336ac9" alt="Camisa Formal" class="carousel-image">
-                        <img src="https://images.unsplash.com/photo-1607345366928-199ea26cfe3e" alt="Detalles de Costura" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157" alt="Camisa Elegante" class="main-image">
+                    <div class="image-grid">
+                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10" alt="Detalle de Camisa">
+                        <img src="https://images.unsplash.com/photo-1563630423918-b58f07336ac9" alt="Camisa Formal">
                     </div>
                 </div>
             </div>
