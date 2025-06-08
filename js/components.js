@@ -95,29 +95,24 @@ document.addEventListener('DOMContentLoaded', function() {
     loadHeader();
     loadFooter();
 
-    // Manejar el menú móvil después de que se cargue el header
-    setTimeout(() => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
 
-            // Cerrar el menú al hacer clic en un enlace
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            // Cerrar el menú al hacer clic fuera
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        }
-    }, 100);
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = navLinks.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', false);
+            }
+        });
+    }
 }); 
