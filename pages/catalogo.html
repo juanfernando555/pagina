@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="VX1tQBsS1tQqaRJBFfokeiovLWUezY3CgD3Ik1RH_Z8" />
     <title>Catálogo - Button</title>
-    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset y estilos base */
         * {
@@ -15,140 +16,334 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             background-color: #f8f9fa;
         }
 
-        /* Header y navegación */
+        /* Contenedor general */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top bar */
         .top-bar {
-            background-color: #1f618d;
+            background-color: #1a4a73;
             color: white;
-            padding: 8px 20px;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .contact-info {
+        .contact-bar {
             display: flex;
             gap: 20px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
+        .contact-bar a, .social-links a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        nav {
-            background: white;
-            padding: 15px 20px;
+        .contact-bar a:hover, .social-links a:hover {
+            color: #64b5f6;
+        }
+
+        /* Header principal */
+        .main-header {
+            background-color: white;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: relative;
+            z-index: 2;
         }
 
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
+            gap: 12px;
         }
 
-        .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #1f618d;
-            gap: 15px;
-        }
-
-        .logo img {
+        .nav-logo {
             height: 50px;
             width: auto;
         }
 
-        .logo span {
-            font-size: 32px;
+        .brand-name {
+            font-size: 28px;
             font-weight: bold;
+            color: #1a4a73;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
-            list-style: none;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: #333;
+            text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #1f618d;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a4a73;
+            transition: width 0.3s;
         }
 
-        /* Catálogo Styles */
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .header-phone a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #1a4a73;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1a4a73;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Curva del header */
+        .header-curve {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            clip-path: path('M0,0 C300,0 400,50 800,50 L1920,50 L1920,0 L0,0 Z');
+            z-index: 1;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+
+            .main-header {
+                padding: 10px 0;
+                box-shadow: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .header-content {
+                justify-content: center;
+                padding: 0;
+                position: relative;
+            }
+
+            .logo-container {
+                margin: 0;
+                justify-content: center;
+            }
+
+            .nav-logo {
+                height: 45px;
+            }
+
+            .brand-name {
+                font-size: 24px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 28px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .header-phone {
+                display: none;
+            }
+
+            .catalog-container {
+                padding: 20px;
+            }
+
+            .catalog-header {
+                margin: 20px 0 30px;
+            }
+
+            .catalog-header h1 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .catalog-header p {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .catalog-filters {
+                flex-direction: column;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-card img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header {
+                padding: 15px 0;
+            }
+
+            .nav-logo {
+                height: 40px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .mobile-menu-btn {
+                font-size: 24px;
+                right: 15px;
+            }
+
+            .catalog-header h1 {
+                font-size: 24px;
+            }
+
+            .catalog-header p {
+                font-size: 15px;
+                padding: 0 15px;
+            }
+
+            .product-card {
+                margin: 0 15px;
+            }
+
+            .product-info {
+                padding: 15px;
+            }
+
+            .product-info h3 {
+                font-size: 18px;
+            }
+
+            .price {
+                font-size: 20px;
+            }
+        }
+
+        /* Catalog specific styles */
         .catalog-container {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
         .catalog-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .catalog-header h1 {
-            color: #1f618d;
+            color: #1a4a73;
             font-size: 36px;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .catalog-header p {
             color: #666;
             font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .catalog-filters {
             display: flex;
             gap: 20px;
             margin-bottom: 30px;
-            flex-wrap: wrap;
         }
 
         .filter-group {
             flex: 1;
-            min-width: 200px;
         }
 
         .filter-group label {
-            font-weight: 500;
-            color: #333;
             display: block;
             margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
         }
 
         .filter-group select {
             width: 100%;
-            padding: 8px 12px;
+            padding: 12px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
             font-size: 16px;
-            color: #333;
             background-color: white;
+            color: #333;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -164,7 +359,7 @@
             transform: translateY(-5px);
         }
 
-        .product-image {
+        .product-card img {
             width: 100%;
             height: 300px;
             object-fit: cover;
@@ -175,7 +370,7 @@
         }
 
         .product-info h3 {
-            color: #1f618d;
+            color: #1a4a73;
             margin-bottom: 10px;
             font-size: 20px;
         }
@@ -185,229 +380,61 @@
             margin-bottom: 15px;
         }
 
-        .product-code {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .product-color {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .product-price {
+        .price {
             color: #2ecc71;
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            flex: 1;
-            min-width: 120px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background-color: #1f618d;
-            color: white;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #164666;
-        }
-
-        .btn-outline {
-            border: 1px solid #1f618d;
-            color: #1f618d;
-            background: none;
-        }
-
-        .btn-outline:hover {
-            background-color: #1f618d;
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1f618d;
-            color: white;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-section a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .catalog-container {
-                padding: 0 15px;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contact-info {
-                display: none;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 10px;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                gap: 10px;
-            }
-
-            .catalog-filters {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .filter-group {
-                width: 100%;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 15px;
-            }
-
-            .product-image {
-                height: 250px;
-            }
-
-            .product-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .catalog-header h1 {
-                font-size: 28px;
-            }
-
-            .catalog-header p {
-                font-size: 16px;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-image {
-                height: 200px;
-            }
-
-            .product-info {
-                padding: 15px;
-            }
-
-            .product-info h3 {
-                font-size: 18px;
-            }
-
-            .product-price {
-                font-size: 20px;
-            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="top-bar">
-            <div class="contact-info">
-                <a href="tel:+591 67053233">+591 67053233</a>
-                <a href="mailto:info@button.com">info@button.com</a>
-                <div>Lun - Vie: 09:00 - 20:00</div>
-            </div>
-            <div class="social-links">
-                <a href="https://api.whatsapp.com/send?phone=%2B59178778001" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                <a href="https://www.facebook.com/share/1APkp6j1kN/" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/button_camisas?igsh=dTEzZ2k4Y3o3MHBm" target="_blank"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.tiktok.com/@button.camisas.a?_t=ZM-8wzcn5sWRBY&_r=1" target="_blank"><i class="bi bi-tiktok"></i></a>
+            <div class="container">
+                <div class="contact-bar">
+                    <a href="tel:+59167053233"><i class="bi bi-telephone"></i> +591 67053233</a>
+                    <a href="mailto:info@button.com"><i class="bi bi-envelope"></i> info@button.com</a>
+                    <span><i class="bi bi-clock"></i> Lun - Vie: 09:00 - 20:00</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://api.whatsapp.com/send?phone=%2B59178778001" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/1APkp6j1kN/" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/button_camisas?igsh=dTEzZ2k4Y3o3MHBm" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@button.camisas.a?_t=ZM-8wzcn5sWRBY&_r=1" target="_blank"><i class="bi bi-tiktok"></i></a>
+                </div>
             </div>
         </div>
+        
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-container">
+                        <img src="../img/Objeto inteligente vectorial.png" alt="Button Logo" class="nav-logo">
+                        <span class="brand-name">Button</span>
+                    </div>
+                    
+                    <button class="mobile-menu-btn">
+                        <i class="bi bi-list"></i>
+                    </button>
 
-        <nav class="main-nav">
-            <div class="logo-container">
-                <a href="../index.html">
-                    <img src="../img/Objeto inteligente vectorial.png" alt="Button Logo" class="logo">
-                    <span>Button</span>
-                </a>
+                    <nav class="nav-links">
+                        <a href="../index.html">Inicio</a>
+                        <a href="catalogo.html" class="active">Catálogo</a>
+                        <a href="personalizar.html">Personalizar</a>
+                        <a href="nosotros.html">Nosotros</a>
+                        <a href="contacto.html">Contacto</a>
+                    </nav>
+
+                    <div class="header-phone">
+                        <a href="tel:+59177788899">
+                            <i class="bi bi-telephone"></i>
+                            <span>+591 77788899</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <button class="menu-toggle">
-                <i class="bi bi-list"></i>
-            </button>
-            <div class="nav-links">
-                <a href="../index.html">Inicio</a>
-                <a href="catalogo.html" class="active">Catálogo</a>
-                <a href="personalizar.html">Personalizar</a>
-                <a href="nosotros.html">Nosotros</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-        </nav>
+            <div class="header-curve"></div>
+        </div>
     </header>
 
     <main class="catalog-container">
@@ -423,111 +450,75 @@
                     <option value="all">Todos los productos</option>
                     <option value="shirts">Camisas</option>
                     <option value="suits">Trajes</option>
+                    <option value="accessories">Accesorios</option>
                 </select>
             </div>
             <div class="filter-group">
                 <label for="sort">Ordenar por:</label>
                 <select id="sort">
-                    <option value="default">Predeterminado</option>
+                    <option value="featured">Destacados</option>
                     <option value="price-low">Precio: Menor a Mayor</option>
                     <option value="price-high">Precio: Mayor a Menor</option>
-                    <option value="name">Nombre</option>
+                    <option value="newest">Más Recientes</option>
                 </select>
             </div>
         </div>
 
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=500" alt="Traje Negro Liso" class="product-image">
+                <img src="../img/products/traje-negro.jpg" alt="Traje Negro Liso">
                 <div class="product-info">
                     <h3>Traje Negro Liso PD496</h3>
-                    <p class="product-code">PD496 65</p>
-                    <p class="product-color">Negro</p>
-                    <p>Traje formal negro liso, corte moderno, ideal para eventos especiales</p>
-                    <p class="product-price">Bs. 1100.00</p>
-                    <div class="product-actions">
-                        <a href="#" class="btn btn-outline">Ver Detalles</a>
-                        <a href="#" class="btn btn-primary">Ordenar</a>
-                    </div>
+                    <p>Elegante traje negro para ocasiones formales</p>
+                    <span class="price">Bs. 1,299.00</span>
                 </div>
             </div>
-
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500" alt="Camisa Blanca Formal" class="product-image">
+                <img src="../img/products/camisa-blanca.jpg" alt="Camisa Blanca Formal">
                 <div class="product-info">
-                    <h3>Camisa Blanca Formal</h3>
-                    <p class="product-code">CM220</p>
-                    <p class="product-description">Camisa formal, perfecta para ocasiones especiales</p>
-                    <p class="product-price">Bs. 250.00</p>
-                    <div class="product-actions">
-                        <a href="#" class="btn btn-outline"><i class="bi bi-eye"></i> Ver Detalles</a>
-                        <a href="#" class="btn btn-primary"><i class="bi bi-bag"></i> Ordenar</a>
-                    </div>
+                    <h3>Camisa Blanca Formal CM220</h3>
+                    <p>Camisa formal, perfecta para ocasiones especiales</p>
+                    <span class="price">Bs. 299.00</span>
                 </div>
             </div>
-
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500" alt="Poleras Institucionales" class="product-image">
+                <img src="../img/products/polera-institucional.jpg" alt="Polera Institucional">
                 <div class="product-info">
-                    <h3>Poleras Institucionales</h3>
-                    <p class="product-code">PI150</p>
-                    <p class="product-description">Poleras personalizadas para empresas e instituciones</p>
-                    <p class="product-price">Bs. 180.00</p>
-                    <div class="product-actions">
-                        <a href="#" class="btn btn-outline"><i class="bi bi-eye"></i> Ver Detalles</a>
-                        <a href="#" class="btn btn-primary"><i class="bi bi-bag"></i> Ordenar</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500" alt="Impresión Personalizada" class="product-image">
-                <div class="product-info">
-                    <h3>Impresión Personalizada</h3>
-                    <p class="product-code">IP100</p>
-                    <p class="product-description">Servicio de impresión personalizada para todo tipo de prendas</p>
-                    <p class="product-price">Bs. 150.00</p>
-                    <div class="product-actions">
-                        <a href="#" class="btn btn-outline"><i class="bi bi-eye"></i> Ver Detalles</a>
-                        <a href="#" class="btn btn-primary"><i class="bi bi-bag"></i> Ordenar</a>
-                    </div>
+                    <h3>Poleras Institucionales PI150</h3>
+                    <p>Poleras personalizadas para empresas e instituciones</p>
+                    <span class="price">Bs. 149.00</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contacto</h3>
-                <p><i class="bi bi-geo-alt"></i> Av. Principal #123, Santa Cruz</p>
-                <p><i class="bi bi-telephone"></i> +591 67053233</p>
-                <p><i class="bi bi-envelope"></i> info@button.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Enlaces</h3>
-                <ul>
-                    <li><a href="catalogo.html">Catálogo</a></li>
-                    <li><a href="personalizar.html">Personalizar</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Síguenos</h3>
-                <div class="social-links">
-                    <a href="https://api.whatsapp.com/send?phone=%2B59178778001" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/share/1APkp6j1kN/" target="_blank"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com/button_camisas?igsh=dTEzZ2k4Y3o3MHBm" target="_blank"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@button.camisas.a?_t=ZM-8wzcn5sWRBY&_r=1" target="_blank"><i class="bi bi-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Button. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
 
-    <script src="../js/components.js"></script>
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = navLinks.contains(event.target);
+                const isClickOnMenuBtn = menuBtn.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnMenuBtn && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            const navLinksElements = document.querySelectorAll('.nav-links a');
+            navLinksElements.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
