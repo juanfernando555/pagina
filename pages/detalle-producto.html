@@ -813,6 +813,38 @@
         </div>
     </div>
 
+    <!-- Modal de A Medida -->
+    <div id="customModal" class="payment-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCustomModal()">&times;</span>
+            <h2 style="color: #1a4a73; margin-bottom: 20px;">Agendar Cita Personalizada</h2>
+            <div class="order-summary">
+                <h4>Camisa a Medida</h4>
+                <p><strong>Producto:</strong> <span id="custom-product-name"></span></p>
+            </div>
+            <div class="qr-container">
+                <img id="custom-product-image" src="" alt="Camisa a medida" class="qr-image" style="max-width:180px;">
+            </div>
+            <div class="product-description" id="custom-product-description" style="margin-bottom:18px;"></div>
+            <div class="qr-container">
+                <img src="../qr/WhatsApp Image 2025-07-06 at 16.37.45.jpeg" alt="QR de Pago" class="qr-image">
+            </div>
+            <div class="payment-instructions">
+                <h3>Instrucciones</h3>
+                <ol>
+                    <li>Escanea el código QR para reservar tu cita personalizada.</li>
+                    <li>Ingresa el monto acordado o de seña.</li>
+                    <li>Guarda el comprobante de pago.</li>
+                    <li>Haz clic en "Agendar por WhatsApp" para enviar tu solicitud.</li>
+                </ol>
+            </div>
+            <button class="whatsapp-btn" onclick="sendCustomWhatsApp()">
+                <i class="bi bi-whatsapp"></i>
+                Agendar por WhatsApp
+            </button>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1066,6 +1098,47 @@ He realizado el pago y adjunto el comprobante. ¿Podrían confirmar mi pedido?`;
 
             // Cargar producto al cargar la página
             loadProduct();
+
+            // Mostrar modal de A Medida si la URL contiene el parámetro medida=1
+            if (urlParams.get('medida') === '1') {
+                setTimeout(showCustomModal, 200); // Espera breve para asegurar que todo cargue
+            }
+        });
+
+        // Mostrar modal de A Medida
+        function showCustomModal() {
+            const product = products[productId] || products['producto1'];
+            document.getElementById('custom-product-name').textContent = product.name;
+            document.getElementById('custom-product-image').src = product.image;
+            document.getElementById('custom-product-image').alt = product.name;
+            document.getElementById('custom-product-description').textContent = product.description;
+            document.getElementById('customModal').style.display = 'block';
+        }
+        function closeCustomModal() {
+            document.getElementById('customModal').style.display = 'none';
+        }
+        function sendCustomWhatsApp() {
+            const productName = document.getElementById('custom-product-name').textContent;
+            let message = `Hola! Quiero agendar una cita personalizada para:\n\n*Producto:* ${productName}\n\nHe realizado el pago de la cita y adjunto el comprobante. ¿Podrían contactarme para coordinar?`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=59178778001&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        // Cerrar modal al hacer clic fuera (también para custom)
+        window.onclick = function(event) {
+            const modal = document.getElementById('paymentModal');
+            const customModal = document.getElementById('customModal');
+            if (event.target === modal) modal.style.display = 'none';
+            if (event.target === customModal) customModal.style.display = 'none';
+        }
+        // Conectar todos los botones 'A medida' para abrir el modal personalizado
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnsMedida = document.querySelectorAll('.btn-medida');
+            btnsMedida.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showCustomModal();
+                });
+            });
         });
     </script>
 </body>
