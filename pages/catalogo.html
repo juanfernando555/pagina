@@ -286,6 +286,16 @@
             .price {
                 font-size: 20px;
             }
+
+            .product-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .btn-talla, .btn-medida {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
         }
 
         /* Catalog specific styles */
@@ -387,6 +397,45 @@
             color: #2ecc71;
             font-size: 24px;
             font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-talla, .btn-medida {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-talla {
+            background-color: #1a4a73;
+            color: white;
+        }
+
+        .btn-talla:hover {
+            background-color: #0d2d4a;
+        }
+
+        .btn-medida {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .btn-medida:hover {
+            background-color: #27ae60;
         }
 
         /* Footer */
@@ -515,6 +564,10 @@
                     <h3>Producto 1</h3>
                     <p>Descripción breve del producto 1.</p>
                     <span class="price">Bs. 1,299.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto1" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -523,6 +576,10 @@
                     <h3>Producto 2</h3>
                     <p>Descripción breve del producto 2.</p>
                     <span class="price">Bs. 299.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto2" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -531,6 +588,10 @@
                     <h3>Producto 3</h3>
                     <p>Descripción breve del producto 3.</p>
                     <span class="price">Bs. 149.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto3" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -539,6 +600,10 @@
                     <h3>Producto 4</h3>
                     <p>Descripción breve del producto 4.</p>
                     <span class="price">Bs. 199.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto4" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -547,6 +612,10 @@
                     <h3>Producto 5</h3>
                     <p>Descripción breve del producto 5.</p>
                     <span class="price">Bs. 249.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto5" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -555,6 +624,10 @@
                     <h3>Producto 6</h3>
                     <p>Descripción breve del producto 6.</p>
                     <span class="price">Bs. 349.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto6" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -563,6 +636,10 @@
                     <h3>Producto 7</h3>
                     <p>Descripción breve del producto 7.</p>
                     <span class="price">Bs. 179.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto7" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -571,6 +648,10 @@
                     <h3>Producto 8</h3>
                     <p>Descripción breve del producto 8.</p>
                     <span class="price">Bs. 399.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto8" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -579,6 +660,10 @@
                     <h3>Producto 9</h3>
                     <p>Descripción breve del producto 9.</p>
                     <span class="price">Bs. 299.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto9" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -587,6 +672,10 @@
                     <h3>Producto 10</h3>
                     <p>Descripción breve del producto 10.</p>
                     <span class="price">Bs. 279.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto10" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -595,6 +684,10 @@
                     <h3>Producto 11</h3>
                     <p>Descripción breve del producto 11.</p>
                     <span class="price">Bs. 189.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto11" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -603,6 +696,10 @@
                     <h3>Producto 12</h3>
                     <p>Descripción breve del producto 12.</p>
                     <span class="price">Bs. 159.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto12" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
             <div class="product-card">
@@ -611,6 +708,10 @@
                     <h3>Producto 13</h3>
                     <p>Descripción breve del producto 13.</p>
                     <span class="price">Bs. 209.00</span>
+                    <div class="product-buttons">
+                        <a href="detalle-producto.html?producto=producto13" class="btn-talla"><i class="bi bi-cart-plus"></i> Por talla</a>
+                        <a href="#" class="btn-medida"><i class="bi bi-cart-plus"></i> A medida</a>
+                    </div>
                 </div>
             </div>
         </div>
