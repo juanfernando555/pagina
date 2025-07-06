@@ -459,6 +459,21 @@
                 padding: 8px 12px;
                 font-size: 14px;
             }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                width: 95%;
+            }
+
+            .qr-image {
+                max-width: 150px;
+            }
+
+            .whatsapp-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
         }
 
         /* Footer */
@@ -500,6 +515,137 @@
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Modal de pago mejorado */
+        .payment-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 40px 30px 30px 30px;
+            border-radius: 18px;
+            width: 95%;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            max-height: 90vh;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+        }
+        .close-modal:hover {
+            color: #333;
+        }
+        .order-summary {
+            background: #f4f8fb;
+            padding: 22px 18px 18px 18px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 8px rgba(26,74,115,0.06);
+            border: 1.5px solid #e3eaf3;
+        }
+        .order-summary h4 {
+            color: #1a4a73;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .order-summary p {
+            margin: 6px 0;
+            color: #333;
+            font-size: 15px;
+        }
+        .order-summary .total {
+            font-weight: bold;
+            color: #16a34a;
+            font-size: 20px;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1.5px solid #b2dfdb;
+            letter-spacing: 1px;
+        }
+        .qr-container {
+            margin: 28px 0 18px 0;
+            text-align: center;
+        }
+        .qr-image {
+            max-width: 260px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(26,74,115,0.13);
+            border: 2.5px solid #1a4a73;
+            background: #fff;
+        }
+        .payment-instructions {
+            margin: 18px 0 0 0;
+            padding: 18px 12px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #1a4a73;
+            text-align: left;
+        }
+        .payment-instructions h3 {
+            color: #1a4a73;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+        .payment-instructions ol {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .payment-instructions li {
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+            box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+        }
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+        }
+        @media (max-width: 600px) {
+            .modal-content {
+                padding: 18px 4vw 18px 4vw;
+                max-width: 98vw;
+            }
+            .qr-image {
+                max-width: 90vw;
+            }
+            .order-summary {
+                padding: 12px 6px 10px 6px;
+            }
         }
     </style>
 </head>
@@ -608,9 +754,9 @@
                         <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
                     </div>
                     
-                    <button class="add-to-cart-btn" onclick="addToCart()">
+                    <button class="add-to-cart-btn" onclick="showPaymentModal()">
                         <i class="bi bi-cart-plus"></i>
-                        Agregar al Carrito
+                        Comprar Ahora
                     </button>
                 </div>
             </div>
@@ -629,6 +775,43 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal de Pago -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePaymentModal()">&times;</span>
+            <h2 style="color: #1a4a73; margin-bottom: 20px;">Realizar Pago</h2>
+            
+            <div class="order-summary">
+                <h4>Resumen de tu Pedido</h4>
+                <p><strong>Producto:</strong> <span id="modal-product-name"></span></p>
+                <p><strong>Talla:</strong> <span id="modal-size"></span></p>
+                <p><strong>Color:</strong> <span id="modal-color"></span></p>
+                <p><strong>Cantidad:</strong> <span id="modal-quantity"></span></p>
+                <p class="total"><strong>Total:</strong> <span id="modal-total"></span></p>
+            </div>
+
+            <div class="qr-container">
+                <img src="../qr/WhatsApp Image 2025-07-06 at 16.37.45.jpeg" alt="QR de Pago" class="qr-image">
+            </div>
+
+            <div class="payment-instructions">
+                <h3>Instrucciones de Pago</h3>
+                <ol>
+                    <li>Escanea el código QR con tu aplicación bancaria</li>
+                    <li>Ingresa el monto exacto mostrado arriba</li>
+                    <li>Realiza la transferencia o depósito</li>
+                    <li>Guarda el comprobante de pago</li>
+                    <li>Haz clic en "Enviar por WhatsApp" para confirmar tu pedido</li>
+                </ol>
+            </div>
+
+            <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
+                <i class="bi bi-whatsapp"></i>
+                Enviar por WhatsApp
+            </button>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -787,8 +970,8 @@
             }
         }
 
-        // Agregar al carrito
-        function addToCart() {
+        // Mostrar modal de pago
+        function showPaymentModal() {
             const selectedSize = document.querySelector('.size-option.selected');
             const selectedColor = document.querySelector('.color-option.selected');
             const quantity = document.getElementById('quantity').value;
@@ -805,8 +988,53 @@
             
             const productName = document.getElementById('product-title').textContent;
             const productPrice = document.getElementById('product-price').textContent;
+            const priceValue = productPrice.replace('Bs. ', '').replace(',', '');
+            const totalPrice = (parseFloat(priceValue) * parseInt(quantity)).toFixed(2);
             
-            alert(`Producto agregado al carrito:\n${productName}\nTalla: ${selectedSize.dataset.size}\nColor: ${selectedColor.dataset.color}\nCantidad: ${quantity}\nPrecio: ${productPrice}`);
+            // Actualizar información en el modal
+            document.getElementById('modal-product-name').textContent = productName;
+            document.getElementById('modal-size').textContent = selectedSize.dataset.size;
+            document.getElementById('modal-color').textContent = selectedColor.dataset.color;
+            document.getElementById('modal-quantity').textContent = quantity;
+            document.getElementById('modal-total').textContent = `Bs. ${totalPrice}`;
+            
+            // Mostrar modal
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        // Cerrar modal de pago
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        // Enviar mensaje por WhatsApp
+        function sendWhatsAppMessage() {
+            const productName = document.getElementById('modal-product-name').textContent;
+            const size = document.getElementById('modal-size').textContent;
+            const color = document.getElementById('modal-color').textContent;
+            const quantity = document.getElementById('modal-quantity').textContent;
+            const total = document.getElementById('modal-total').textContent;
+            
+            const message = `Hola! Quiero realizar un pedido:
+
+*Producto:* ${productName}
+*Talla:* ${size}
+*Color:* ${color}
+*Cantidad:* ${quantity}
+*Total:* ${total}
+
+He realizado el pago y adjunto el comprobante. ¿Podrían confirmar mi pedido?`;
+
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=59178778001&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('paymentModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
         }
 
         // Menú móvil
