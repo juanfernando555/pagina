@@ -647,6 +647,75 @@
                 padding: 12px 6px 10px 6px;
             }
         }
+
+        /* Botón de WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 28px;
+        }
+
+        /* Animación de pulso */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Responsive para el botón flotante */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+                width: 55px;
+                height: 55px;
+            }
+            
+            .whatsapp-float i {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 10px;
+                right: 10px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-float i {
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -877,6 +946,11 @@
         </div>
     </footer>
 
+    <!-- Botón de WhatsApp flotante -->
+    <div class="whatsapp-float" onclick="openWhatsAppFloat()" title="¡Chatea con nosotros por WhatsApp!">
+        <i class="bi bi-whatsapp"></i>
+    </div>
+
     <!-- Incluir productos.js antes del script principal -->
     <script src="../js/productos.js"></script>
     <script>
@@ -1019,6 +1093,14 @@
         function sendCustomWhatsApp() {
             const producto = getProductoById(productId);
             let message = `Hola! Quiero agendar una cita personalizada para:\n\n*Producto:* ${producto.nombre}\n\nHe realizado el pago de la cita y adjunto el comprobante. ¿Podrían contactarme para coordinar?`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=59178778001&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Función para el botón flotante de WhatsApp
+        function openWhatsAppFloat() {
+            const producto = getProductoById(productId);
+            const message = `¡Hola! 👋\n\nMe interesa saber más sobre el producto:\n*${producto.nombre}*\n\n¿Podrían darme más información sobre disponibilidad, tallas y precios?\n\n¡Gracias! 😊`;
             const whatsappUrl = `https://api.whatsapp.com/send?phone=59178778001&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
