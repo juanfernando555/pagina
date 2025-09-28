@@ -16,14 +16,14 @@ const productos = [
   {
     id: "producto3",
     nombre: "CAMISAS EJECUTIVAS",
-    descripcion: "aaEs una camisa elegante confeccionada en telas de algodón de alta calidad, con diseño a rayas finas que transmite profesionalismo y estilo. Su confección a medida asegura un ajuste perfecto al cuerpo, ofreciendo comodidad durante la jornada laboral y una imagen impecable en reuniones, eventos corporativos o presentaciones formales.a",
+    descripcion: "Es una camisa elegante confeccionada en telas de algodón de alta calidad, con diseño a rayas finas que transmite profesionalismo y estilo. Su confección a medida asegura un ajuste perfecto al cuerpo, ofreciendo comodidad durante la jornada laboral y una imagen impecable en reuniones, eventos corporativos o presentaciones formales.a",
     imagen: "../img-catalogo/488658179_651609164505058_436925742149740408_n.jpg",
     precio: 149.00
   },
   {
     id: "producto4",
-    nombre: "Producto 4",
-    descripcion: "Descripción breve del producto 4.",
+    nombre: "BUTTON DOWN",
+    descripcion: "Nuestra Camisa Button Down a medida combina la frescura del estilo casual con la elegancia del corte ejecutivo. Su cuello con botones asegura un ajuste impecable y un look siempre ordenado. Confeccionada en algodón de alta calidad, ofrece comodidad durante todo el día, manteniendo una apariencia moderna y profesional. El tono rosa aporta un aire juvenil y sofisticado, ideal para reuniones de trabajo, eventos sociales o un estilo business casual relajado pero distinguido.",
     imagen: "../img-catalogo/480761882_617057601293548_95604407827483747_n.jpg",
     precio: 199.00
   },
