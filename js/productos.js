@@ -31,7 +31,7 @@ const productos = [
     id: "producto5",
     nombre: "Producto 5",
     descripcion: "Descripción breve del producto 5.",
-    imagen: "../img-catalogo/479720357_610421115290530_7733450406145481184_n.jpg",
+    imagen: "../img-catalogo/button.jpg",
     precio: 249.00
   },
   {
