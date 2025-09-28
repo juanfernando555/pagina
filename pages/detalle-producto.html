@@ -877,102 +877,27 @@
         </div>
     </footer>
 
+    <!-- Incluir productos.js antes del script principal -->
+    <script src="../js/productos.js"></script>
     <script>
-        // Datos de productos (simulado)
-        const products = {
-            'producto1': {
-                name: 'Camisa Cuello Italiano',
-                price: 'Bs. 1,299.00',
-                image: '../img-catalogo/ITALIANO.jpeg',
-                description: 'Camisa elegante El cuello italiano es un tipo de cuello de camisa caracterizado por tener las puntas ampliamente separadas entre sí, formando un ángulo abierto. Este estilo ofrece un aspecto moderno, elegante y sofisticado, y está diseñado para usarse preferiblemente con corbatas de nudo ancho, como el nudo Windsor. de alta calidad perfecta para ocasiones formales.'
-            },
-            'producto2': {
-                name: 'Camisa SEMI-ITALIANO',
-                price: 'Bs. 299.00',
-                image: '../img-catalogo/SEMI-ITALIANO.jpeg',
-                description: 'El cuello semi italiano es una versión más discreta del cuello italiano. Tiene las puntas un poco abiertas, pero no tanto como en el italiano clásico. Es un estilo versátil y equilibrado, que combina bien tanto con corbata como sin ella. Es ideal si buscas un look elegante pero no demasiado formal, y le queda bien a casi cualquier tipo de rostro.'
-            },
-            'producto3': {
-                name: 'Camisa Premium Button',
-                price: 'Bs. 149.00',
-                image: '../img-catalogo/488658179_651609164505058_436925742149740408_n.jpg',
-                description: 'Calidad premium con acabados excepcionales.'
-            },
-            'producto4': {
-                name: 'Camisa Elegante Button',
-                price: 'Bs. 199.00',
-                image: '../img-catalogo/480761882_617057601293548_95604407827483747_n.jpg',
-                description: 'Elegancia y sofisticación en cada detalle.'
-            },
-            'producto5': {
-                name: 'Camisa Estilo Button',
-                price: 'Bs. 249.00',
-                image: '../img-catalogo/479720357_610421115290530_7733450406145481184_n.jpg',
-                description: 'Estilo único que combina moda y comodidad.'
-            },
-            'producto6': {
-                name: 'Camisa Profesional Button',
-                price: 'Bs. 349.00',
-                image: '../img-catalogo/477064577_610420998623875_7372694078387625839_n.jpg',
-                description: 'Ideal para el entorno profesional y formal.'
-            },
-            'producto7': {
-                name: 'Camisa Casual Button',
-                price: 'Bs. 179.00',
-                image: '../img-catalogo/477978736_609624772036831_6638760143252815705_n.jpg',
-                description: 'Comodidad y estilo para el día a día.'
-            },
-            'producto8': {
-                name: 'Camisa Exclusiva Button',
-                price: 'Bs. 399.00',
-                image: '../img-catalogo/476125808_601862236146418_1539294755732078154_n.jpg',
-                description: 'Diseño exclusivo con materiales de primera calidad.'
-            },
-            'producto9': {
-                name: 'Camisa Tradicional Button',
-                price: 'Bs. 299.00',
-                image: '../img-catalogo/475794553_601862032813105_528445780155454400_n.jpg',
-                description: 'Tradición y calidad en cada confección.'
-            },
-            'producto10': {
-                name: 'Camisa Contemporánea Button',
-                price: 'Bs. 279.00',
-                image: '../img-catalogo/475788368_601453646187277_3391182315820079177_n.jpg',
-                description: 'Diseño contemporáneo para el hombre moderno.'
-            },
-            'producto11': {
-                name: 'Camisa Versátil Button',
-                price: 'Bs. 189.00',
-                image: '../img-catalogo/475288876_599003359765639_7404527504092965500_n.jpg',
-                description: 'Versatilidad y estilo en una sola prenda.'
-            },
-            'producto12': {
-                name: 'Camisa Refinada Button',
-                price: 'Bs. 159.00',
-                image: '../img-catalogo/473106491_586933667639275_7450342377372598872_n.jpg',
-                description: 'Refinamiento y elegancia en cada detalle.'
-            },
-            'producto13': {
-                name: 'Camisa Distinguida Button',
-                price: 'Bs. 209.00',
-                image: '../img-catalogo/473043012_586102511055724_8362056363693836796_n.jpg',
-                description: 'Distinción y calidad en cada confección.'
-            }
-        };
-
         // Obtener parámetros de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('producto');
 
+        // Buscar producto en el array productos
+        function getProductoById(id) {
+            return productos.find(p => p.id === id) || productos[0];
+        }
+
         // Cargar datos del producto
         function loadProduct() {
-            const product = products[productId] || products['producto1'];
-            
-            document.getElementById('product-name').textContent = product.name;
-            document.getElementById('product-title').textContent = product.name;
-            document.getElementById('product-price').textContent = product.price;
-            document.getElementById('product-image').src = product.image;
-            document.getElementById('product-image').alt = product.name;
+            const producto = getProductoById(productId);
+            document.getElementById('product-name').textContent = producto.nombre;
+            document.getElementById('product-title').textContent = producto.nombre;
+            document.getElementById('product-price').textContent = `Bs. ${producto.precio.toFixed(2)}`;
+            document.getElementById('product-image').src = producto.imagen;
+            document.getElementById('product-image').alt = producto.nombre;
+            document.querySelector('.product-description').textContent = producto.descripcion;
         }
 
         // Funcionalidad de tallas
@@ -996,7 +921,6 @@
             const quantityInput = document.getElementById('quantity');
             let currentValue = parseInt(quantityInput.value);
             let newValue = currentValue + delta;
-            
             if (newValue >= 1 && newValue <= 10) {
                 quantityInput.value = newValue;
             }
@@ -1007,29 +931,22 @@
             const selectedSize = document.querySelector('.size-option.selected');
             const selectedColor = document.querySelector('.color-option.selected');
             const quantity = document.getElementById('quantity').value;
-            
             if (!selectedSize) {
                 alert('Por favor selecciona una talla');
                 return;
             }
-            
             if (!selectedColor) {
                 alert('Por favor selecciona un color');
                 return;
             }
-            
-            const productName = document.getElementById('product-title').textContent;
-            const productPrice = document.getElementById('product-price').textContent;
-            const priceValue = productPrice.replace('Bs. ', '').replace(',', '');
-            const totalPrice = (parseFloat(priceValue) * parseInt(quantity)).toFixed(2);
-            
+            const producto = getProductoById(productId);
+            const totalPrice = (producto.precio * parseInt(quantity)).toFixed(2);
             // Actualizar información en el modal
-            document.getElementById('modal-product-name').textContent = productName;
+            document.getElementById('modal-product-name').textContent = producto.nombre;
             document.getElementById('modal-size').textContent = selectedSize.dataset.size;
             document.getElementById('modal-color').textContent = selectedColor.dataset.color;
             document.getElementById('modal-quantity').textContent = quantity;
             document.getElementById('modal-total').textContent = `Bs. ${totalPrice}`;
-            
             // Mostrar modal
             document.getElementById('paymentModal').style.display = 'block';
         }
@@ -1041,22 +958,12 @@
 
         // Enviar mensaje por WhatsApp
         function sendWhatsAppMessage() {
-            const productName = document.getElementById('modal-product-name').textContent;
+            const producto = getProductoById(productId);
             const size = document.getElementById('modal-size').textContent;
             const color = document.getElementById('modal-color').textContent;
             const quantity = document.getElementById('modal-quantity').textContent;
             const total = document.getElementById('modal-total').textContent;
-            
-            const message = `Hola! Quiero realizar un pedido:
-
-*Producto:* ${productName}
-*Talla:* ${size}
-*Color:* ${color}
-*Cantidad:* ${quantity}
-*Total:* ${total}
-
-He realizado el pago y adjunto el comprobante. ¿Podrían confirmar mi pedido?`;
-
+            const message = `Hola! Quiero realizar un pedido:\n\n*Producto:* ${producto.nombre}\n*Talla:* ${size}\n*Color:* ${color}\n*Cantidad:* ${quantity}\n*Total:* ${total}\n\nHe realizado el pago y adjunto el comprobante. ¿Podrían confirmar mi pedido?`;
             const whatsappUrl = `https://api.whatsapp.com/send?phone=59178778001&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
@@ -1064,82 +971,57 @@ He realizado el pago y adjunto el comprobante. ¿Podrían confirmar mi pedido?`;
         // Cerrar modal al hacer clic fuera
         window.onclick = function(event) {
             const modal = document.getElementById('paymentModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
+            const customModal = document.getElementById('customModal');
+            if (event.target === modal) modal.style.display = 'none';
+            if (event.target === customModal) customModal.style.display = 'none';
         }
 
-        // Menú móvil
+        // Menú móvil y carga de producto
         document.addEventListener('DOMContentLoaded', function() {
             const menuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
-
             menuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
             });
-
-            // Cerrar menú al hacer clic fuera
             document.addEventListener('click', function(event) {
                 const isClickInsideNav = navLinks.contains(event.target);
                 const isClickOnMenuBtn = menuBtn.contains(event.target);
-                
                 if (!isClickInsideNav && !isClickOnMenuBtn && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                 }
             });
-
-            // Cerrar menú al hacer clic en un enlace
             const navLinksElements = document.querySelectorAll('.nav-links a');
             navLinksElements.forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                 });
             });
-
             // Cargar producto al cargar la página
             loadProduct();
-
             // Mostrar modal de A Medida si la URL contiene el parámetro medida=1
             if (urlParams.get('medida') === '1') {
-                setTimeout(showCustomModal, 200); // Espera breve para asegurar que todo cargue
+                setTimeout(showCustomModal, 200);
             }
         });
 
         // Mostrar modal de A Medida
         function showCustomModal() {
-            const product = products[productId] || products['producto1'];
-            document.getElementById('custom-product-name').textContent = product.name;
-            document.getElementById('custom-product-image').src = product.image;
-            document.getElementById('custom-product-image').alt = product.name;
-            document.getElementById('custom-product-description').textContent = product.description;
+            const producto = getProductoById(productId);
+            document.getElementById('custom-product-name').textContent = producto.nombre;
+            document.getElementById('custom-product-image').src = producto.imagen;
+            document.getElementById('custom-product-image').alt = producto.nombre;
+            document.getElementById('custom-product-description').textContent = producto.descripcion;
             document.getElementById('customModal').style.display = 'block';
         }
         function closeCustomModal() {
             document.getElementById('customModal').style.display = 'none';
         }
         function sendCustomWhatsApp() {
-            const productName = document.getElementById('custom-product-name').textContent;
-            let message = `Hola! Quiero agendar una cita personalizada para:\n\n*Producto:* ${productName}\n\nHe realizado el pago de la cita y adjunto el comprobante. ¿Podrían contactarme para coordinar?`;
+            const producto = getProductoById(productId);
+            let message = `Hola! Quiero agendar una cita personalizada para:\n\n*Producto:* ${producto.nombre}\n\nHe realizado el pago de la cita y adjunto el comprobante. ¿Podrían contactarme para coordinar?`;
             const whatsappUrl = `https://api.whatsapp.com/send?phone=59178778001&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
-        // Cerrar modal al hacer clic fuera (también para custom)
-        window.onclick = function(event) {
-            const modal = document.getElementById('paymentModal');
-            const customModal = document.getElementById('customModal');
-            if (event.target === modal) modal.style.display = 'none';
-            if (event.target === customModal) customModal.style.display = 'none';
-        }
-        // Conectar todos los botones 'A medida' para abrir el modal personalizado
-        document.addEventListener('DOMContentLoaded', function() {
-            const btnsMedida = document.querySelectorAll('.btn-medida');
-            btnsMedida.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showCustomModal();
-                });
-            });
-        });
     </script>
 </body>
 </html> 
