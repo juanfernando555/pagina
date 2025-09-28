@@ -15,8 +15,8 @@ const productos = [
   },
   {
     id: "producto3",
-    nombre: "Producto 3",
-    descripcion: "aaa",
+    nombre: "CAMISAS EJECUTIVAS",
+    descripcion: "aaEs una camisa elegante confeccionada en telas de algodón de alta calidad, con diseño a rayas finas que transmite profesionalismo y estilo. Su confección a medida asegura un ajuste perfecto al cuerpo, ofreciendo comodidad durante la jornada laboral y una imagen impecable en reuniones, eventos corporativos o presentaciones formales.a",
     imagen: "../img-catalogo/488658179_651609164505058_436925742149740408_n.jpg",
     precio: 149.00
   },
