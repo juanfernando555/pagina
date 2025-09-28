@@ -21,3 +21,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 }); 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".carousel-slide");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  const dots = document.querySelectorAll(".dot");
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+      dots[i].classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  // Eventos flechas
+  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+
+  // Eventos puntos
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      updateCarousel();
+    });
+  });
+
+  // Cambio automático cada 5s
+  setInterval(nextSlide, 5000);
+
+  updateCarousel();
+});
