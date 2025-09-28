@@ -24,7 +24,7 @@ const productos = [
     id: "producto4",
     nombre: "BUTTON DOWN",
     descripcion: "Nuestra Camisa Button Down a medida combina la frescura del estilo casual con la elegancia del corte ejecutivo. Su cuello con botones asegura un ajuste impecable y un look siempre ordenado. Confeccionada en algodón de alta calidad, ofrece comodidad durante todo el día, manteniendo una apariencia moderna y profesional. El tono rosa aporta un aire juvenil y sofisticado, ideal para reuniones de trabajo, eventos sociales o un estilo business casual relajado pero distinguido.",
-    imagen: "../img-catalogo/480761882_617057601293548_95604407827483747_n.jpg",
+    imagen: "../img-catalogo/button.jpeg",
     precio: 199.00
   },
   {
