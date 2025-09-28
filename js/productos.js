@@ -30,8 +30,8 @@ const productos = [
   {
     id: "producto5",
     nombre: "Producto 5",
-    descripcion: "Descripción breve del producto 5.",
-    imagen: "../img-catalogo/button.jpg",
+    descripcion: "Confeccionada en algodón de alta calidad, esta camisa celeste es un básico del guardarropa masculino. Su tono sobrio y elegante transmite confianza y profesionalismo, perfecta para entornos corporativos y reuniones formales. Se adapta fácilmente tanto a un traje como a un look más casual con pantalón de vestir.",
+    imagen: "../img-catalogo/479720357_610421115290530_7733450406145481184_n.jpg",
     precio: 249.00
   },
   {
